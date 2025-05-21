@@ -27,7 +27,6 @@ export class CreateProductDto {
   description: string;
 
   @ApiPropertyOptional({
-    example: 'https://example.com/images/water-bottle.jpg',
     description: 'The URL of the product image',
   })
   @IsUrl()
