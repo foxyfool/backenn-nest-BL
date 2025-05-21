@@ -14,19 +14,13 @@ export class UsersService {
     });
   }
 
-  //   async findAll(): Promise<User[]> {
-  //     return this.prisma.user.findMany({
-  //       select: {
-  //         id: true,
-  //         email: true,
-  //         password: false,
-  //         name: true,
-  //         role: true,
-  //         createdAt: true,
-  //         updatedAt: true,
-  //       },
-  //     });
-  //   }
+  async findAll(): Promise<User[]> {
+    return this.prisma.user.findMany({
+      orderBy: {
+        createdAt: 'desc',
+      },
+    });
+  }
 
   async findOne(id: string): Promise<User> {
     const user = await this.prisma.user.findUnique({

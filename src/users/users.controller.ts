@@ -36,12 +36,12 @@ export class UsersController {
     return this.usersService.create(createUserDto);
   }
 
-//   @Get()
-//   @Roles(Role.ADMIN)
-//   @ApiOperation({ summary: 'Get all users' })
-//   findAll() {
-//     return this.usersService.findAll();
-//   }
+  @Get()
+  @Roles(Role.ADMIN)
+  @ApiOperation({ summary: 'Get all users' })
+  findAll() {
+    return this.usersService.findAll();
+  }
 
   @Get(':id')
   @ApiOperation({ summary: 'Get a user by id' })

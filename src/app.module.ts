@@ -22,7 +22,7 @@ import { AppService } from './app.service';
   controllers: [AppController],
   providers: [
     AppService,
-    // Global JWT authentication guard
+    // Global JWT
     {
       provide: APP_GUARD,
       useClass: JwtAuthGuard,
