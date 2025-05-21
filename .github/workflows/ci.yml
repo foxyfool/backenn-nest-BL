@@ -21,10 +21,19 @@ jobs:
     - name: Install dependencies
       run: npm ci
       
+    - name: Generate Prisma client
+      run: npx prisma generate
+      env:
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      
     - name: Build
       run: npm run build
       env:
         DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        FRONTEND_URL: ${{ secrets.FRONTEND_URL }}
+        NODE_ENV: ${{ secrets.NODE_ENV }}
+        JWT_SECRET: ${{ secrets.JWT_SECRET }}
+        JWT_EXPIRATION: ${{ secrets.JWT_EXPIRATION }}
       
     - name: Lint
       run: npm run lint
